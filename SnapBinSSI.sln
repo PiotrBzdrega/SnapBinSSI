@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project2", "Project2.vcxproj", "{1C80636E-6372-486C-BC5F-C1C3FE19426B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SnapBinSSI", "SnapBinSSI.vcxproj", "{6368D294-E1D8-48AD-B3C8-2912DA055972}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1C80636E-6372-486C-BC5F-C1C3FE19426B}.Debug|x64.ActiveCfg = Debug|x64
-		{1C80636E-6372-486C-BC5F-C1C3FE19426B}.Debug|x64.Build.0 = Debug|x64
-		{1C80636E-6372-486C-BC5F-C1C3FE19426B}.Debug|x86.ActiveCfg = Debug|Win32
-		{1C80636E-6372-486C-BC5F-C1C3FE19426B}.Debug|x86.Build.0 = Debug|Win32
-		{1C80636E-6372-486C-BC5F-C1C3FE19426B}.Release|x64.ActiveCfg = Release|x64
-		{1C80636E-6372-486C-BC5F-C1C3FE19426B}.Release|x64.Build.0 = Release|x64
-		{1C80636E-6372-486C-BC5F-C1C3FE19426B}.Release|x86.ActiveCfg = Release|Win32
-		{1C80636E-6372-486C-BC5F-C1C3FE19426B}.Release|x86.Build.0 = Release|Win32
+		{6368D294-E1D8-48AD-B3C8-2912DA055972}.Debug|x64.ActiveCfg = Debug|x64
+		{6368D294-E1D8-48AD-B3C8-2912DA055972}.Debug|x64.Build.0 = Debug|x64
+		{6368D294-E1D8-48AD-B3C8-2912DA055972}.Debug|x86.ActiveCfg = Debug|Win32
+		{6368D294-E1D8-48AD-B3C8-2912DA055972}.Debug|x86.Build.0 = Debug|Win32
+		{6368D294-E1D8-48AD-B3C8-2912DA055972}.Release|x64.ActiveCfg = Release|x64
+		{6368D294-E1D8-48AD-B3C8-2912DA055972}.Release|x64.Build.0 = Release|x64
+		{6368D294-E1D8-48AD-B3C8-2912DA055972}.Release|x86.ActiveCfg = Release|Win32
+		{6368D294-E1D8-48AD-B3C8-2912DA055972}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
