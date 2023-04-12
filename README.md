@@ -1,0 +1,2 @@
+# SnapBinSSI
+TTxx telegrams acquisition
