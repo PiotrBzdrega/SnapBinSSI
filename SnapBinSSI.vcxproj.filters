@@ -21,5 +21,8 @@
     <ClCompile Include="snap7\snap7.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="S7-cpp-for-Snap7\s7.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
