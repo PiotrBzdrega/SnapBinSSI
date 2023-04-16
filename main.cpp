@@ -1,11 +1,13 @@
 #include <iostream>
-#include "snap7.h"
+#include "snap7.h" //clean snap7
+#include "s7.h" //data mapping
+#include <sstream>
+#include<string>
+#include<cassert>
 
 byte MyDB[65536]; // byte is a portable type of snap7.h
 
 TS7Client* MyClient;
-
-
 
 bool Check(int Result, const char* function)
 {
@@ -183,6 +185,8 @@ void MultiRead()
         std::cout << p[3] << '\n';
         hexdump(p, 4);
 
+
+
         p[0] ^= p[3];
         p[3] ^= p[0];
         p[0] ^= p[3];
@@ -213,27 +217,44 @@ int main()
 
     MyClient->SetParam(p_i32_PingTimeout, &pvalue);
 
-    int res=MyClient->ConnectTo("192.168.175.97", 0, 1);
+    int res = MyClient->ConnectTo("192.168.175.97", 0, 1);
 
-    std::cout << res<<std::endl;
+    //std::cout << res<<std::endl;
 
     CpInfo();
 
-
-
-
-
-    MyClient->DBRead(32, 0, 4, &MyDB);
-    hexdump(&MyDB, 4);
-
+    //REAL
+    MyClient->DBRead(32, 10, 4, &MyDB);
+    std::cout << "S7 mapping Real: " << S7_GetRealAt(MyDB, 0) << '\n';
+    //String;
     MyClient->DBRead(32, 14, 254, &MyDB);
-    char* str[254];
-    memcpy(str, &MyDB, sizeof(str));
-    std::cout << str << std::endl;
+    std::cout << "S7 mapping String: " << S7_GetStringAt(MyDB, 0) << '\n';
+    //Bits in Byte
+    MyClient->DBRead(32, 530, 1, &MyDB);
+    std::cout << "S7 mapping Bit0: " << S7_GetBitAt(MyDB, 0, 0) << '\n';
+    std::cout << "S7 mapping Bit1: " << S7_GetBitAt(MyDB, 0, 1) << '\n';
+    std::cout << "S7 mapping Bit2: " << S7_GetBitAt(MyDB, 0, 2) << '\n';
+    std::cout << "S7 mapping Bit3: " << S7_GetBitAt(MyDB, 0, 3) << '\n';
+    std::cout << "S7 mapping Bit4: " << S7_GetBitAt(MyDB, 0, 4) << '\n';
+    std::cout << "S7 mapping Bit5: " << S7_GetBitAt(MyDB, 0, 5) << '\n';
+    std::cout << "S7 mapping Bit6: " << S7_GetBitAt(MyDB, 0, 6) << '\n';
+    std::cout << "S7 mapping Bit7: " << S7_GetBitAt(MyDB, 0, 7) << '\n';
+    //Time of day
+    MyClient->DBRead(32, 526, 4, &MyDB);
+    TOD result = S7_GetTODAt(MyDB, 0);
+    std::cout << "S7 mapping TOD: " << result.h << " " << result.m << " " << result.s << " " << result.ms << '\n';
+    //Date
+    MyClient->DBRead(32, 532, 2, &MyDB);
+    DATE dat = S7_GetDATEAt(MyDB, 0);
+    std::cout << "S7 mapping DATE: " << dat.year << " " << dat.month << " " << dat.day << '\n';
+    //Date_AND_TIME
+    MyClient->DBRead(32, 536, 8, &MyDB);
+    DATE_AND_TIME datime = S7_GetDATE_AND_TIMEAt(MyDB, 0);
 
+    std::cout << "S7 mapping DATE_AND_TIME: " << datime.year << " " << datime.month << " " << datime.day << " " <<
+        datime.hour<< " " << datime.minute<< " " << datime.second<< " " << datime.msec<< " " << datime.weekday<<'\n';
 
-    MultiRead();
-
+    assert(4 == 4 && "A is not equal to B");
 
 
 
